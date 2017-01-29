@@ -40,18 +40,20 @@ A: -20.8:-32.2 degrees
 
 Then, we will pick a point within the degree boundaries that is easy for a human to understand:
 
-C: 25 degrees
+C: 30 degrees
 D: 15 degrees
 E: 5 degrees
 F: -5 degrees
 G: -15 degrees
-A: -25 degrees
+A: -30 degrees
 
 The angular speed of the servo is listed as 0.09 sec/60°
-This will be utilized in relation to a delay introduced to create the illusion of tempo in the code. In other words, the microcontroller will calculate the time it will take for servo 1 to reach the correct position based on this information, and then introduce a delay before activating servo 2 to play a note. The longest time it would take for this system is to travel from C to A, a total of 50 degrees, which is 0.075 sec. To play a note, we will need to rotate the second servo from a position of -90 degrees to zero degrees, which would take 0.135 sec. The total time would thus be 0.21 sec. If this time period were to be used as tempo, it would translate into 285 bpm which is unecessarily fast. Therefore, we will set the tempo to 120bpm, and implement delays based on this:
+This will be utilized in relation to a delay introduced to create the illusion of tempo in the code. In other words, the microcontroller will calculate the time it will take for servo 1 to reach the correct position based on this information, and then introduce a delay before activating servo 2 to play a note. The longest time it would take for this system is to travel from C to A, a total of 50 degrees, which is 0.075 sec. To play a note, we will need to rotate the second servo, which is the continuous servo from a position of -90 degrees to zero degrees and back roughly, which would take 0.27 sec (since this is a continuous servo, we can't set exact angles, so I used my best judgement on the delay time to set these angles - it seemed like the continuous servo was calibrated wrong, and when set to rotate first in the clockwise direction, then in the counterclockwise, with equal delay times, the servo would rotate more in counterclockwise than in the clockwise direction). The total time would thus be 0.345 sec. If this time period were to be used as tempo, it would translate into around 170 bpm which is unecessarily fast. Therefore, we will set the tempo to 120bpm, and implement delays based on this:
 
 Tempo = 120 bpm
 Period = 0.5 sec
+Period - time it takes to play a note = 0.5 sec - 0.27 sec = 0.23 sec
+Delay = 0.23 sec - time to travel from one note to the next
 
 Explain how each element of your
 system works. Detail your design process, and explain any design decisions you made along the way. Point out
