@@ -55,6 +55,16 @@ Period = 0.5 sec
 Period - time it takes to play a note = 0.5 sec - 0.27 sec = 0.23 sec
 Delay = 0.23 sec - time to travel from one note to the next
 
+
+ISSUE 1:
+After working with the continuous servo as a normal servo, it became apparent that this was impossible, so I switched to a new strategy. I would embrace the continuous servo for what it is and let it continuously rotate, thereby modifying the delay times. I also realized that the delay times given in the specs are inacurrate, so I measured them myself:
+
+continuous servo 360 degree rotation time = 0.8 sec
+normal servo = 0.3 sec for 60 degrees
+
+Therefore the new tempo will be 1 cycle /0.8 sec * 60 sec/min = 75 bpm
+delay = 0.8 - travel time
+
 Explain how each element of your
 system works. Detail your design process, and explain any design decisions you made along the way. Point out
 potential alternatives and areas for further development to allow others to build off of your work.
